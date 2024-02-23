@@ -17,6 +17,13 @@ class User(db.Model):
     username = db.Column(db.String(100), unique=True, nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(100), nullable=False)
+    
+class Image(db.Model):
+    image_id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, nullable=False)
+    filename = db.Column(db.String(255), nullable=False)
+    image_data = db.Column(db.BLOB, nullable=False)  # This line should match the column in your database
+
 
 @app.route('/', methods=['GET', 'POST'])
 def landing_and_login_page():
@@ -55,6 +62,7 @@ def signup():
         password_token = create_access_token(identity=password, expires_delta=datetime.timedelta(days=1))  # Expires in 1 day
 
         try:
+            # new_image = Image(imge)
             new_user = User(username=username, email=email, password=password_token)
             db.session.add(new_user)
             db.session.commit()
@@ -67,10 +75,29 @@ def signup():
 
     return render_template('signupPage.html')
 
-# Route for home page
-@app.route('/home')
+@app.route('/home', methods=['GET', 'POST'])
 def home():
+    if request.method == 'POST':
+        user_id = session.get('user_id')
+        if 'images[]' in request.files:
+            images = request.files.getlist('images[]')
+            for image in images:
+                if image:
+                    filename = image.filename
+                    image_data = image.read()  # Read the binary data of the image
+                    new_image = Image(user_id=user_id, filename=filename, image_data=image_data)
+                    db.session.add(new_image)
+                    db.session.commit()
+            return redirect('/vedio')
+        else:
+            # Handle case when no images are uploaded
+            return render_template('homePage.html', message='No images uploaded')
     return render_template('homePage.html')
+
+
+@app.route('/vedio', methods=['GET', 'POST'])
+def vedio():
+    return render_template('videoPage.html')
 
 if __name__ == '__main__':
     with app.app_context():

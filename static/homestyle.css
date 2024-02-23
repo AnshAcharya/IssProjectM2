@@ -103,3 +103,14 @@ input[type="submit"]:hover {
     margin-left: 25%;
     margin: auto;
 }
+
+.form {
+    display: flex;
+    background-color: gold;
+    height:50vh;
+    width:75%;
+}
+
+.form form{
+    margin:auto;
+}
