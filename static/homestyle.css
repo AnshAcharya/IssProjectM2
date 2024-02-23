@@ -1,0 +1,105 @@
+.main {
+    display: block;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.main div.upload {
+    background: gold;
+    display: flex;
+    height: 60vh;
+    width: 75%;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 2px;
+    border-radius: 8px;
+    ;
+    color: black;
+}
+
+.main div.text {
+    background: gold;
+    height: 10vh;
+    width: 75%;
+    border-radius: 8px;
+    
+    color: black;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 2%;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+input[type="file"] {
+    border: none;
+    background-color: transparent;
+    padding: 15px 25px;
+    border-radius: 8px;
+    outline: none;
+    color: black;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: fit-content;
+}
+
+.upload input[type="file"]:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.upload input[type="file"]:focus {
+    box-shadow: 0 0 10px blue;
+}
+
+.upload input[type="submit"] {
+    background-color: #301d51;
+    color: black;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    ;
+}
+
+.upload input[type="submit"]:hover {
+    background-color: rgb(54, 54, 59);
+}
+
+input[type="submit"] {
+    background-color: #45a049;
+    color:white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    ;
+}
+
+input[type="submit"]:hover {
+    background-color: green;
+    color:white;
+}
+
+.transitionSubmit {
+    margin: auto;
+    background: gold;
+    display: flex;
+    margin-top: 2%;
+    border-radius: 8px;
+    width: 75%;
+}
+
+.transitionSubmit div.transition {
+    color: black;
+    margin-left: 25%;
+}
+
+.transitionSubmit input[type="submit"] {
+    margin-left: 25%;
+    margin: auto;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TeamLAB Project</title>
+  <link rel="stylesheet" href="./static/homestyle.css">
+  
+</head>
+
+<body style="background-color: blue;">
+  <div class="main">
+    <div class="text">
+      <h1>Welcome to My Homepage</h1><p>{{ user_name }}</p>
+      <br>
+      <p>This is a project created by TeamLAB.</p>
+    </div>
+    <div class="upload">
+      <div class="image">
+        <label for="imageUpload">Select an image: </label>
+        <div class="upload-area" onclick="document.getElementById('imageUpload').click()">
+          <i class="icon">+</i>
+          <div class="instructions">Click here or drag and drop files</div>
+        </div>
+        <input type="file" name="imageUpload" id="imageUpload" accept="image/*" multiple value="Insert Images">
+      </div>
+      <div class="audio">
+        <label for="audioUpload">Select an audio:</label>
+        <div class="upload-area" onclick="document.getElementById('audioUpload').click()">
+          <i class="icon">+</i>
+          <div class="instructions">Click here or drag and drop files</div>
+        </div>
+        <input type="file" name="audioUpload" id="audioUpload" accept="audio/*">
+      </div>
+    </div>
+    <div class="transitionSubmit">
+      <div class="transition">
+        <h2>Choose transition</h2>
+        <ul>
+          <li><input type="radio" name="r">None</li>
+          <li><input type="radio" name="r">Morph</li>
+          <li><input type="radio" name="r">Fade</li>
+          <li><input type="radio" name="r">Push</li>
+          <li><input type="radio" name="r">Wipe</li>
+        </ul>
+      </div>
+      <input type="submit" value="Create a Video" onclick="preview()">
+    </div>
+  </div>
+  <script src="home.js"></script>
+</body>
+
+</html>
